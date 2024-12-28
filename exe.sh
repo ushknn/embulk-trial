@@ -1,0 +1,1 @@
+java -jar ./embulk run /app/config/config.yml
