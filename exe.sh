@@ -1,1 +1,1 @@
-java -jar ./embulk run /work/config/config.yml
+java -jar ./embulk run /work/config/csv_to_bq.yml

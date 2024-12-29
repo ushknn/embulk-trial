@@ -1,0 +1,32 @@
+in:
+  type: file
+  path_prefix: /work/target.csv
+  parser:
+    charset: UTF-8
+    newline: LF
+    type: csv
+    delimiter: ','
+    quote: '"'
+    escape: '"'
+    trim_if_not_quoted: false
+    skip_header_lines: 1
+    allow_extra_columns: false
+    allow_optional_columns: false
+    columns:
+    - {name: id, type: long}
+    - {name: name, type: string}
+out:
+  type: bigquery
+  auth_method: json_key
+  json_keyfile: /work/credentials/dbt-trial-bq.json #先程ダウンロードしたjsonファイルのパスを指定
+  path_prefix: /work/tmp/ # 一時ファイル作成場所
+  file_ext: .csv.gz
+  source_format: CSV
+  project: dbt-trial-419001
+  dataset: from_embulk
+  auto_create_table: true # 自動でTBL生成(既にあったのでfalseにしてたのですが、うまく行かず、trueにしました)
+  table: users
+  # schema_file: schema.json
+  formatter: {type: csv, charset: UTF-8, delimiter: ',', header_line: false}
+  encoders:
+  - {type: gzip}
