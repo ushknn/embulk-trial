@@ -3,5 +3,5 @@ services:
   mpenv:
     build: .
     volumes:
-      - ./:/app
+      - ./:/work
     tty: true

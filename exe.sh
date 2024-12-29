@@ -1,1 +1,1 @@
-java -jar ./embulk run /app/config/config.yml
+java -jar ./embulk run /work/config/config.yml
