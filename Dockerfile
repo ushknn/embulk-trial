@@ -27,3 +27,4 @@ RUN ./embulk gem install msgpack -v 1.7.2
 # Embulkのプラグインをインストール
 # 以下の例ではMySQLのプラグインをインストールしています
 RUN ./embulk gem install embulk-output-bigquery
+RUN ./embulk gem install embulk-input-gcs
