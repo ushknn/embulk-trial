@@ -1,0 +1,25 @@
+in:
+  type: mysql
+  host: mysql
+  user: user
+  password: "password"
+  database: db
+  table: users
+  select: "id, name"
+
+
+out:
+  type: bigquery
+  auth_method: json_key
+  json_keyfile: /work/credentials/dbt-trial-bq.json #先程ダウンロードしたjsonファイルのパスを指定
+  path_prefix: /work/tmp/ # 一時ファイル作成場所
+  file_ext: .csv.gz
+  source_format: CSV
+  project: dbt-trial-419001
+  dataset: from_embulk
+  auto_create_table: true # 自動でTBL生成(既にあったのでfalseにしてたのですが、うまく行かず、trueにしました)
+  table: users
+  # schema_file: schema.json
+  formatter: {type: csv, charset: UTF-8, delimiter: ',', header_line: false}
+  encoders:
+  - {type: gzip}
