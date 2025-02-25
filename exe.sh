@@ -1,1 +1,1 @@
-java -jar ./embulk run /work/config/gcs_to_bq.yml
+java -jar embulk/bin/embulk run config/config.yml
