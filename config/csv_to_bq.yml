@@ -1,6 +1,6 @@
 in:
   type: file
-  path_prefix: /work/target.csv
+  path_prefix: target.csv
   parser:
     charset: UTF-8
     newline: LF
@@ -18,8 +18,8 @@ in:
 out:
   type: bigquery
   auth_method: json_key
-  json_keyfile: /work/credentials/dbt-trial-bq.json #先程ダウンロードしたjsonファイルのパスを指定
-  path_prefix: /work/tmp/ # 一時ファイル作成場所
+  json_keyfile: credentials/dbt-trial-bq.json #先程ダウンロードしたjsonファイルのパスを指定
+  path_prefix: tmp/ # 一時ファイル作成場所
   file_ext: .csv.gz
   source_format: CSV
   project: dbt-trial-419001
