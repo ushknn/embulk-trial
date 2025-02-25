@@ -35,4 +35,4 @@ RUN ./embulk/bin/embulk gem install embulk-input-mysql
 copy ./ .
 
 # CMD ["java", "-jar", "embulk/bin/embulk", "run", "config/csv_to_bq.yml"]
-CMD ["bash", "exe.sh"]
+CMD ["bash", "exe.sh", "config/config.yml"]

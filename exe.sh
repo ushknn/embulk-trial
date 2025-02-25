@@ -1,1 +1,1 @@
-java -jar embulk/bin/embulk run config/config.yml
+java -jar embulk/bin/embulk run ${1}
