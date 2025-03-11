@@ -18,7 +18,7 @@ in:
 out:
   type: bigquery
   auth_method: json_key
-  json_keyfile: credentials/dbt-trial-bq.json #先程ダウンロードしたjsonファイルのパスを指定
+  json_keyfile: ./credentials/dbt-trial-bq.json #先程ダウンロードしたjsonファイルのパスを指定
   path_prefix: tmp/ # 一時ファイル作成場所
   file_ext: .csv.gz
   source_format: CSV
