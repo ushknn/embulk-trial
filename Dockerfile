@@ -23,8 +23,8 @@ RUN curl --create-dirs -o ./embulk/bin/embulk -L "https://dl.embulk.org/embulk-0
 COPY ./embulk.properties /root/.embulk/embulk.properties
 RUN ./embulk/bin/embulk gem install embulk -v 0.11.4 # Embulk と同じバージョンを指定
 RUN ./embulk/bin/embulk gem install msgpack -v 1.7.2
+RUN ./embulk/bin/embulk gem install liquid -v 4.0.0
 # RUN ./embulk/bin/embulk gem install bundler # if you need Bundler
-# RUN ./embulk/bin/embulk gem install liquid  # if you need Liquid
 
 # Embulkのプラグインをインストール
 # 以下の例ではMySQLのプラグインをインストールしています
@@ -35,4 +35,4 @@ RUN ./embulk/bin/embulk gem install embulk-input-mysql
 copy ./ .
 
 # CMD ["java", "-jar", "embulk/bin/embulk", "run", "config/csv_to_bq.yml"]
-CMD ["bash", "exe.sh", "config/config.yml"]
+CMD ["bash", "exe.sh", "config/config.yml.liquid"]

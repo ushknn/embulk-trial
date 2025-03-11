@@ -11,4 +11,4 @@ input, outputへの認証ファイルを準備する
 `docker run --rm embulk`
 
 #### 4. ジョブ実行例
-`docker run --rm embulk bash exe.sh config/config.yml`
+`docker run --rm embulk bash exe.sh config/config.yml.liquid`
