@@ -1,0 +1,10 @@
+in:
+  type: mysql
+  host: hostname.rds.amazonaws.com
+  user: admin
+  password: "passpass"
+  database: embulk
+  table: users
+  select: "id, name"
+
+out: {type: stdout}
