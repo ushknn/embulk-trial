@@ -1,1 +1,0 @@
-java -jar ./embulk run /work/config/gcs_to_bq.yml
