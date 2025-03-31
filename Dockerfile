@@ -1,19 +1,18 @@
-# EmBulkの実行にはJavaが必要なため、Javaが含まれているベースイメージを使用します
+# EmBulkはJava8が必要
 FROM openjdk:8-jre-slim
 
-# 作業ディレクトリを設定します
+# set working dir
 WORKDIR /usr/src/app
 
 # install curl
 RUN apt-get update && \
-    apt-get install -y curl && \
-    rm -rf /var/lib/apt/lists/*
+    apt-get install -y curl
 
 # install jruby
 RUN curl --create-dirs -o "./jruby-complete-9.4.5.0.jar" -L "https://repo1.maven.org/maven2/org/jruby/jruby-complete/9.4.5.0/jruby-complete-9.4.5.0.jar"
 RUN chmod +x ./jruby-complete-9.4.5.0.jar
 
-# Embulkをダウンロードして実行可能にする
+# Embulk Dlownload
 RUN curl --create-dirs -o ./embulk -L "https://github.com/embulk/embulk/releases/download/v0.11.4/embulk-0.11.4.jar" && \
     chmod +x ./embulk
 
@@ -29,3 +28,7 @@ RUN ./embulk gem install msgpack -v 1.7.2
 RUN ./embulk gem install embulk-output-bigquery
 RUN ./embulk gem install embulk-input-gcs
 RUN ./embulk gem install embulk-input-mysql
+
+COPY ./ .
+
+CMD ["bash", "exe_config.sh", "config/config.yml"]
