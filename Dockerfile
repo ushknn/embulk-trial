@@ -14,7 +14,7 @@ RUN curl --create-dirs -o "./jruby-complete-9.4.5.0.jar" -L "https://repo1.maven
 RUN chmod +x ./jruby-complete-9.4.5.0.jar
 
 # Embulkをダウンロードして実行可能にする
-RUN curl --create-dirs -o ./embulk -L "https://dl.embulk.org/embulk-0.11.4.jar" && \
+RUN curl --create-dirs -o ./embulk -L "https://github.com/embulk/embulk/releases/download/v0.11.4/embulk-0.11.4.jar" && \
     chmod +x ./embulk
 
 # install Ruby gems
